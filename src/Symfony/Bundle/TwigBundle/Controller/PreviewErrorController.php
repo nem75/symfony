@@ -48,8 +48,9 @@ class PreviewErrorController
             'exception' => $exception,
             'logger' => null,
             'format' => $request->getRequestFormat(),
-            'showException' => false,
         ]);
+
+        $subRequest->query->set('showException', false);
 
         return $this->kernel->handle($subRequest, HttpKernelInterface::SUB_REQUEST);
     }
